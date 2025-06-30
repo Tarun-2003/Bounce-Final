@@ -1,0 +1,325 @@
+/* Set global background color to white */
+body {
+  background-color: white; /* Full white background */
+  color: black; /* Text color to contrast with white background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #21252b; /* Dark background for the navbar */
+}
+
+.logo {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  display: none; /* Hidden by default, shown on mobile */
+}
+
+/* Hamburger icon */
+.hamburger {
+  font-size: 30px;
+  display: block;
+}
+
+/* Navbar links */
+.navbar {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.navbar a:hover {
+  color: #00bfff;
+}
+
+/* For mobile, toggle the navbar visibility */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    background-color: #21252b; /* Ensure navbar background stays dark */
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+  
+    transition: height 0.3s ease, opacity 0.3s ease;
+  }
+.navbar a {
+
+  font-size: 0.75rem;
+
+}
+  .navbar.open {
+    height: auto;
+    opacity: 1;
+  }
+
+  /* Show the logo/hamburger on small screens */
+  .logo {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    display: flex;
+  }
+
+  .logo {
+    display: none;
+  }
+}
+
+/* Main container */
+.App {
+  text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: white; /* Full white background */
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Home page header */
+.App-header {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+}
+
+/* Section styling for content */
+section {
+  background-color: white; /* Ensure sections have white background */
+  margin-top: 20px;
+}
+
+.neows-bar-chart {
+  max-width: 55%;  /* Limit the width to 80% of the container */
+  margin: 20px auto;  /* Center the chart and add margin */
+}
+.neows-pie-chart {
+  max-width: 45%;  
+  margin: 20px auto;
+}
+
+@media (max-width: 768px) {
+  .neows-bar-chart,
+  .neows-pie-chart {
+    max-width: 100%;  /* Full width on mobile */
+    margin: 20px 0;    /* Remove auto margin on mobile */
+  }
+
+}
+/* Mars Rover section */
+.mars-rover-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.mars-rover-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.mars-rover-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+
+}
+
+p {
+  font-size: 1.1rem;
+
+  margin: 20px;
+  line-height: 1.6;
+}
+
+/* Date Picker and Button */
+input[type="date"] {
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+input[type="date"]:hover {
+  border-color: #00bfff;
+}
+
+input[type="date"]:focus {
+  border-color: #00bfff;
+  outline: none;
+}
+/* Styling for buttons */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #007bb5;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* NeoWs Section Styling */
+.neows-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.neows-item {
+  margin-bottom: 20px;
+}
+
+.neows-item h3 {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.neows-item p {
+  font-size: 1rem;
+  color: #F4E7E1;
+}
+
+.neows-pie-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* NeoWs Pie chart styling */
+.neows-pie-section canvas {
+  max-width: 90%;   /* Controls the width of the pie chart */
+  max-height: 400px; /* Controls the height of the pie chart */
+  margin: 0 auto;  /* Centers the chart */
+}
+
+/* NASA Library Section Styling */
+.nasa-library {
+  text-align: center;
+  padding: 20px;
+}
+
+.nasa-library-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.nasa-library-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* video {
+  max-width: 100%;
+  border-radius: 8px;
+} */
+
+/* Loading spinner */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Error message */
+.error-message {
+  text-align: center;
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.error-message button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-message button:hover {
+  background-color: #cc0000;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  input[type="date"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
