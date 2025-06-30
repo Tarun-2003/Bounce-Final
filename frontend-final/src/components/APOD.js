@@ -72,8 +72,7 @@ function APOD() {
   const [date, setDate] = useState('');
 
   //  Choose correct API base depending on environment
-  const API_BASE_URL =
-    process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
+  const API_BASE_URL = 'https://apod-65s3.onrender.com'
 
   const handleDateChange = (event) => {
     setDate(event.target.value);
