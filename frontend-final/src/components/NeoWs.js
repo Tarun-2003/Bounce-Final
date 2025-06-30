@@ -21,10 +21,8 @@ function NeoWs() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // ✅ Base URL logic for local vs deployed
-  const API_BASE_URL =
-    process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
-
+  const API_BASE_URL = 'https://apod-65s3.onrender.com'
+  
   // Fetch NeoWs data
   useEffect(() => {
     setLoading(true);
