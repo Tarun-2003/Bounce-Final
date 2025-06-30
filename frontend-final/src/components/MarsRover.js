@@ -9,9 +9,7 @@ function MarsRover() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // ✅ Base URL logic (dev vs production)
-  const API_BASE_URL =
-    process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
+  const API_BASE_URL = 'https://apod-65s3.onrender.com'
 
   // Fetch Mars Rover photos for the selected Sol
   useEffect(() => {
