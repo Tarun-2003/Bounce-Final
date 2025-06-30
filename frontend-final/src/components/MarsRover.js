@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css';
+
 function MarsRover() {
   const [marsRoverData, setMarsRoverData] = useState([]);
   const [imageIndex, setImageIndex] = useState(0);
@@ -8,11 +9,15 @@ function MarsRover() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // ✅ Base URL logic (dev vs production)
+  const API_BASE_URL =
+    process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
+
   // Fetch Mars Rover photos for the selected Sol
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5000/api/mars-rover-photos?sol=${sol}`)
+      .get(`${API_BASE_URL}/api/mars-rover-photos?sol=${sol}`)
       .then((response) => {
         setMarsRoverData(response.data);
         setImageIndex(0);
@@ -24,12 +29,11 @@ function MarsRover() {
       });
   }, [sol]);
 
-  // Handle next and previous image navigation
   const handleNextImage = () => {
     if (imageIndex < marsRoverData.length - 1) {
       setImageIndex(imageIndex + 1);
     } else {
-      setSol(sol + 1); // Move to the next Sol (Martian day) when the last image is reached
+      setSol(sol + 1); // Move to the next Sol
     }
   };
 
@@ -37,11 +41,10 @@ function MarsRover() {
     if (imageIndex > 0) {
       setImageIndex(imageIndex - 1);
     } else if (sol > 1000) {
-      setSol(sol - 1); // Move to the previous Sol (Martian day) when the first image is reached
+      setSol(sol - 1); // Move to the previous Sol
     }
   };
 
-  // Loading and error handling
   if (loading) return <p>Loading Mars Rover Photos...</p>;
   if (error) return <p>{error}</p>;
 
@@ -49,7 +52,6 @@ function MarsRover() {
     <div className="mars-rover">
       <h2>Mars Rover Photos (Sol: {sol})</h2>
 
-      {/* Display current image */}
       {marsRoverData.length > 0 && (
         <div className="mars-rover-image-container">
           <img
@@ -60,7 +62,6 @@ function MarsRover() {
         </div>
       )}
 
-      {/* Navigation buttons */}
       <div className="mars-rover-buttons">
         <button onClick={handlePrevImage} disabled={imageIndex === 0}>
           Previous
