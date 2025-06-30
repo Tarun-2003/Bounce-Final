@@ -9,9 +9,7 @@ function NasaLibrary() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // ✅ Base URL logic
-  const API_BASE_URL =
-    process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
+  const API_BASE_URL = 'https://apod-65s3.onrender.com'
 
   useEffect(() => {
     setLoading(true);
